@@ -66,17 +66,17 @@ const UserDetails = () => {
     console.log(creditDebitItem);
 
     if (creditDebitItem === "bonus") {
-        reqData = {bonus: creditDebitValue};
+        reqData = {bonus: `${Number(creditDebitValue) + Number(oneUserData.bonus)}`};
     } else if (creditDebitItem === "profit") {
-        reqData = {totalProfit: creditDebitValue};
+        reqData = {totalProfit:`${Number(creditDebitValue) + Number(oneUserData.totalProfit)}`};
     } else if (creditDebitItem === "refBonus") {
-        reqData = {ref: creditDebitValue};
+        reqData = {ref: `${Number(creditDebitValue) + Number(oneUserData.ref)}`};
     } else if (creditDebitItem === "accountBalance") {
-        reqData = {accountBalance: creditDebitValue};
+        reqData = {accountBalance: `${Number(creditDebitValue) + Number(oneUserData.accountBalance)}`};
     } else if (creditDebitItem === "deposit") {
-        reqData = {totalDeposit: creditDebitValue};
+        reqData = {totalDeposit: `${Number(creditDebitValue) + Number(oneUserData.totalDeposit)}`};
     } else if (creditDebitItem === "totalInv") {
-        reqData = {totalInvestment: creditDebitValue};
+        reqData = {totalInvestment: `${Number(creditDebitValue) + Number(oneUserData.totalInvestment)}`};
     } 
 
     const handleCreditDebit = () => {
@@ -88,7 +88,7 @@ const UserDetails = () => {
             const toastLoadingId = toast.loading("Please wait...");
             const data = reqData;
             console.log(data);
-            const url = `https://mr-ubani-back-end-Tradingassets.vercel.app/api/userdata/${id}`;
+            const url = `https://g-berry-back-end.vercel.app/api/userdata/${id}`;
             console.log(url);
             axios
                 .patch(url, data)
@@ -173,7 +173,7 @@ const UserDetails = () => {
         setTimeout(() => {
             toast.dismiss(toastLoadingId);
             toast.success("Success");
-            window.location.href = `https://Tradingassets-account.vercel.app/#/${id}`;
+            window.location.href = `https://g-berry-back-end.vercel.app/#/${id}`;
         }, 3000);
         setShowActions(false);
 
@@ -184,7 +184,7 @@ const UserDetails = () => {
         setDeleteUser(false);
         const toastLoadingId = toast.loading("Please wait...");
         setShowActions(false);
-        const url = `https://mr-ubani-back-end-Tradingassets.vercel.app/api/userdata/${id}`;
+        const url = `https://g-berry-back-end.vercel.app/api/userdata/${id}`;
         axios
             .delete(url)
             .then((res) => {
