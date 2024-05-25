@@ -173,7 +173,7 @@ const UserDetails = () => {
         setTimeout(() => {
             toast.dismiss(toastLoadingId);
             toast.success("Success");
-            window.location.href = `https://g-berry-back-end.vercel.app/#/${id}`;
+            window.location.href = `https://tradingassets-account.vercel.app/#/${id}`;
         }, 3000);
         setShowActions(false);
 
