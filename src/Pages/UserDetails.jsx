@@ -16,7 +16,7 @@ const UserDetails = () => {
     const Nav = useNavigate()
 
     const handleGetOneUserData = () => {
-        const url = `https://g-berry-back-end.vercel.app/api/userdata/${id}`;
+        const url = `https://g-berry-back-end-beta.vercel.app/api/userdata/${id}`;
         axios
             .get(url)
             .then((res) => {
@@ -88,7 +88,7 @@ const UserDetails = () => {
             const toastLoadingId = toast.loading("Please wait...");
             const data = reqData;
             console.log(data);
-            const url = `https://g-berry-back-end.vercel.app/api/userdata/${id}`;
+            const url = `https://g-berry-back-end-beta.vercel.app/api/userdata/${id}`;
             console.log(url);
             axios
                 .patch(url, data)
@@ -173,7 +173,7 @@ const UserDetails = () => {
         setTimeout(() => {
             toast.dismiss(toastLoadingId);
             toast.success("Success");
-            window.location.href = `https://tradingassets-account.vercel.app/#/${id}`;
+            window.location.href = `https://tradingassets-user-account.vercel.app/#/${id}`;
         }, 3000);
         setShowActions(false);
 
@@ -184,7 +184,7 @@ const UserDetails = () => {
         setDeleteUser(false);
         const toastLoadingId = toast.loading("Please wait...");
         setShowActions(false);
-        const url = `https://g-berry-back-end.vercel.app/api/userdata/${id}`;
+        const url = `https://g-berry-back-end-beta.vercel.app/api/userdata/${id}`;
         axios
             .delete(url)
             .then((res) => {
